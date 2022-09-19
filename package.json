@@ -6,7 +6,7 @@
   "scripts": {
     "build": "rimraf dist  &&  tsc --project tsconfig.publish.json",
     "//prepublishOnly": "npm run test  &&  npm run build",
-    "test": "rimraf dist src/coverage  &&  jest  --config ./src/test/jest.config.ts  --coverage",
+    "test": "rimraf src/coverage  &&  jest  --config ./src/test/jest.config.ts  --coverage",
     "lint": "eslint"
   },
   "author": "Wojciech Fiderek",
