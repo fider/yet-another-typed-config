@@ -1,0 +1,11 @@
+Conditional validation with Smart conditions
+      env.required/optional({ ifEnvDefined? } | { ifConfigDefined?, ifConfigEqual? })
+
+CSV
+      trim?
+
+Object
+      
+code cleanup (more functions in flow)
+git upload
+publish
