@@ -1,11 +1,13 @@
-Conditional validation with Smart conditions
-      env.required/optional({ ifEnvDefined? } | { ifConfigDefined?, ifConfigEqual? })
+
+Object
 
 CSV
       trim?
-
-Object
       
+Conditional validation with Smart conditions
+      need custom decorators and custom validation to make possible ValidateIf for below:
+            `env.required/optional({ ifEnvDefined? } | { ifConfigDefined?, ifConfigEqual? })`
+
 code cleanup (more functions in flow)
 
 README

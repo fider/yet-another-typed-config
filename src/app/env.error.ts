@@ -16,7 +16,7 @@ export class EnvError extends Error {
     this.details = detailsList.map(detail => {
       const propertyMappings = getPropertyMapping(Object.getPrototypeOf(detail.targetObject).constructor);
       const envName = propertyMappings.find((mapping) => mapping.propertyName === detail.configPropertyName)?.envName || detail.configPropertyName;
-      const propertyPrefix = envName === detail.configPropertyName ? envName : `${envName} mapped to config ${detail.configPropertyName}`;
+      const propertyPrefix = envName === detail.configPropertyName ? envName : `${envName} mapped to config.${detail.configPropertyName}`;
 
       const errorMessageList = Object.values(detail.constraints).map(mapIfUnknownPropertyError);
       const valueQuote = typeof detail.value === 'string' ? '"' : '';

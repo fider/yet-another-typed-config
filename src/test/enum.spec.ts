@@ -203,6 +203,6 @@ test('Key mappings error messgae', () => {
   
   expectEnvError(EnvSchema, trimEachLine(`Invalid environment variables provided:
     - NO_MAP (Actual value=undefined): must be one of values ['the-one', 'the-two', 'the-three'].
-    - B mapped to config A (Actual value=undefined): must be one of values ['the-one', 'the-two', 'the-three'].`
+    - B mapped to config.A (Actual value=undefined): must be one of values ['the-one', 'the-two', 'the-three'].`
   ));
 });

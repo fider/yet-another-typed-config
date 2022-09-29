@@ -37,6 +37,12 @@ test('ENV_FILE not found', () => {
   expect(() => getConfig(EnvSchema)).toThrow();
 })
 
+test('No permissions to read .env file', () => {
+  jest.spyOn(process, 'cwd').mockReturnValueOnce(__dirname);
+  process.env.ENV_FILE = 'test-env-dir/.no-permissions.env';
+  expect(() => getConfig(EnvSchema)).toThrow();
+})
+
 test('ENV_FILE is direcotry', () => {
   jest.spyOn(process, 'cwd').mockReturnValueOnce(__dirname);
   process.env.ENV_FILE = 'test-env-dir/';

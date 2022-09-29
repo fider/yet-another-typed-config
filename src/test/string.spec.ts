@@ -182,6 +182,6 @@ test('Key mappings error messgae', () => {
   
   expectEnvError(EnvSchema, trimEachLine(`Invalid environment variables provided:
     - NO_MAP (Actual value=undefined): must be string AND must be non-empty string.
-    - B mapped to config A (Actual value=undefined): must be string AND must be non-empty string.`
+    - B mapped to config.A (Actual value=undefined): must be string AND must be non-empty string.`
   ));
 });

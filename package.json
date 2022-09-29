@@ -7,7 +7,8 @@
     "build": "rimraf dist  &&  tsc --project tsconfig.publish.json",
     "//prepublishOnly": "npm run test  &&  npm run build",
     "test": "rimraf src/coverage  &&  jest  --config ./src/test/jest.config.ts  --coverage",
-    "lint": "eslint"
+    "lint": "eslint",
+    "prepare": "husky install"
   },
   "author": "Wojciech Fiderek",
   "license": "ISC",
@@ -29,6 +30,7 @@
     "deep-copy": "^1.4.2",
     "eslint": "^8.23.1",
     "eslint-config-airbnb-typescript": "^17.0.0",
+    "husky": "^8.0.1",
     "jest": "^29.0.3",
     "rimraf": "^3.0.2",
     "ts-jest": "^29.0.0",

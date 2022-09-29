@@ -1,4 +1,4 @@
-import { env, getConfig } from '../app';
+import { env } from '../app';
 import { envFile, trimEachLine, expectEnvError, expectOk } from './test.util';
 
 test('Required success', () => {
@@ -10,7 +10,7 @@ test('Required success', () => {
   `);
 
   class EnvSchema {
-    @env.boolean()
+    @env().boolean()
     BOOL_T!: boolean;
 
     @env.boolean()
@@ -171,6 +171,6 @@ test('Key mappings error messgae', () => {
   
   expectEnvError(EnvSchema, trimEachLine(`Invalid environment variables provided:
     - NO_MAP (Actual value=undefined): must be one of accepted boolean values=[true, false, 1, 0].
-    - B mapped to config A (Actual value=undefined): must be one of accepted boolean values=[true, false, 1, 0].`
+    - B mapped to config.A (Actual value=undefined): must be one of accepted boolean values=[true, false, 1, 0].`
   ));
 });

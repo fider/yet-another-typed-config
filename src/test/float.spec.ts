@@ -184,6 +184,6 @@ test('Key mappings error messgae', () => {
   
   expectEnvError(EnvSchema, trimEachLine(`Invalid environment variables provided:
     - NO_MAP (Actual value=undefined): should be number (int and float accepted. Float separator is '.').
-    - B mapped to config A (Actual value=undefined): should be number (int and float accepted. Float separator is '.').`
+    - B mapped to config.A (Actual value=undefined): should be number (int and float accepted. Float separator is '.').`
   ));
 });
