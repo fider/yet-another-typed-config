@@ -1,6 +1,8 @@
 import { join } from "path";
 import { env, getConfig } from "../app"
 import { expectOk } from "./test.util"
+import * as fs from "fs/promises";
+import { Stats } from "fs";
 
 class EnvSchema {
   @env.string()
@@ -37,10 +39,18 @@ test('ENV_FILE not found', () => {
   expect(() => getConfig(EnvSchema)).toThrow();
 })
 
-test('No permissions to read .env file', () => {
-  jest.spyOn(process, 'cwd').mockReturnValueOnce(__dirname);
-  process.env.ENV_FILE = 'test-env-dir/.no-permissions.env';
+test('No permissions to read .env file', async () => {
+  const envFileValue = 'test-env-dir/.no-permissions.env';
+  process.env.ENV_FILE = envFileValue;
+
+  const envFilePath = join(__dirname, envFileValue);
+
+  jest.spyOn(process, 'cwd').mockReturnValue(__dirname);
+  
+  await fs.chmod(envFilePath, '222');
   expect(() => getConfig(EnvSchema)).toThrow();
+  await fs.chmod(envFilePath, '666');
+  expect(getConfig(EnvSchema)).toEqual({ TEST_ENV: 'ok' });
 })
 
 test('ENV_FILE is direcotry', () => {

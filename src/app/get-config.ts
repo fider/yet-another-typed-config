@@ -39,8 +39,8 @@ export function getConfig<T extends object>(ConfigSchema: new () => T, opts?: Ge
   let config = new ConfigSchema();
   Object.assign(config, mappedRawEnv);
 
-  TODO continue here
-    assign appropriate classes to objects with help of metadata that objectDecorator will set
+  // TODO continue here
+  //   assign appropriate classes to objects with help of metadata that objectDecorator will set
 
   const forbidUnknownProperties = !(opts?.allowUnknown ?? false);
   const validatorOptions: ValidatorOptions = {
