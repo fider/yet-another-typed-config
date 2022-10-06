@@ -12,7 +12,7 @@ import { optionalDecorator } from "./optional";
 * (can be reason of compilation error when TypeScript will finally handle strict Exact types. If such then replace `@int` with `@string({ match: /^\d+$/ })` until fixed by me)
  */
 export type Int = number & {
-  _fake_int: symbol;
+  _fake_int?: symbol;
 }
 
 export type NumberOpts = {

@@ -51,6 +51,7 @@ export function getConfig<T extends object>(ConfigSchema: new () => T, opts?: Ge
     config = transformAndValidateSync(ConfigSchema, config, { validator: validatorOptions, transformer: { strategy: 'exposeAll'} });
   } catch (err) {
     // TODO replace with Object.getPrototypeOf(err[0]).constructor.name === 'ValidationError'
+    //      because for some rason after build it will not recognize it as ValidationError
     if (Array.isArray(err) && err[0] instanceof ValidationError) {
       const detailsList: ConstructorParameters<typeof EnvError>[number] = (err as ValidationError[]).map(validationError => {
         const isOptional = isPropertyMarkedAsOptional(Object.getPrototypeOf(config), validationError.property);

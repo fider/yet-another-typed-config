@@ -13,7 +13,7 @@ import { optionalDecorator } from "./optional";
  * (can be reason of compilation error when TypeScript will finally handle strict Exact types. If such then replace `@float` with `@string({ match: /^\d+\.\d*$/ })` until fixed by me)
  */
  export type Float = number & {
-  _fake_float: symbol;
+  _fake_float?: symbol;
 }
 export function floatDecorator(opts: DecoratorOpts<NumberOpts>) {
   return function FloatDecorator<T extends Record<K, Float>, K extends string>(target: T, key: K) {
